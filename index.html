@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière Jewels - Timeless Elegance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --deep-blue: #0A1628;
+            --cream: #FAF7F2;
+            --charcoal: #2C2C2C;
+            --soft-gold: #E8D5A8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--charcoal);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(250, 247, 242, 0.98), transparent);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--deep-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--soft-gold) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(1.1); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 300;
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--deep-blue);
+            color: var(--cream);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            transition: all 0.4s ease;
+            border: 2px solid var(--deep-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            border-color: var(--gold);
+            color: var(--deep-blue);
+        }
+
+        /* Featured Collections */
+        .collections {
+            padding: 8rem 5%;
+            background: var(--cream);
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--deep-blue);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 1rem auto 0;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .collection-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--soft-gold) 0%, var(--cream) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--deep-blue);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+
+        .collection-card:hover::before {
+            opacity: 0.7;
+        }
+
+        .collection-content {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            right: 2rem;
+            z-index: 2;
+            color: var(--deep-blue);
+            transition: all 0.5s ease;
+        }
+
+        .collection-card:hover .collection-content {
+            color: var(--cream);
+            transform: translateY(-10px);
+        }
+
+        .collection-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .collection-content p {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 5%;
+            background: var(--deep-blue);
+            color: var(--cream);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: var(--gold);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-image {
+            height: 500px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, transparent 100%);
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 8rem;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--cream);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">LUMIÈRE</div>
+        <ul class="nav-links">
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Timeless Elegance</h1>
+            <p class="hero-subtitle">Crafted to Perfection</p>
+            <a href="#collections" class="cta-button">Explore Collection</a>
+        </div>
+    </section>
+
+    <!-- Collections -->
+    <section id="collections" class="collections">
+        <h2 class="section-title">Featured Collections</h2>
+        <div class="collection-grid">
+            <div class="collection-card">
+                <div class="collection-content">
+                    <h3>Diamond</h3>
+                    <p>Eternal Brilliance</p>
+                </div>
+            </div>
+            <div class="collection-card">
+                <div class="collection-content">
+                    <h3>Gold</h3>
+                    <p>Classic Luxury</p>
+                </div>
+            </div>
+            <div class="collection-card">
+                <div class="collection-content">
+                    <h3>Gemstone</h3>
+                    <p>Vibrant Beauty</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-text">
+            <h2>Our Legacy</h2>
+            <p>For over three decades, Lumière has been crafting exquisite jewelry that transcends time. Each piece tells a story of artistry, passion, and uncompromising quality.</p>
+            <p>We source only the finest materials and work with master craftsmen to create jewelry that becomes part of your most precious moments.</p>
+        </div>
+        <div class="about-image">◇</div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Pinterest</a>
+        </div>
+        <p>&copy; 2026 Lumière Jewels. All rights reserved.</p>
+    </footer>
+</body>
+</html>
